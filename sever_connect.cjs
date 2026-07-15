@@ -19,7 +19,7 @@ app.post("/saress", async (req, res) => {
 
     await pool.execute(
   "INSERT INTO images (title) VALUES (?)",
-            ["title"]
+            ["zindagi"]
 
     );
 
