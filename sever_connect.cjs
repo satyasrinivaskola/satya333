@@ -25,7 +25,7 @@ app.get("/saress", async (req, res) => {
     res.json(rows);
 
 });
-app.post("/sss", async (req, res) => {
+app.post("/saress", async (req, res) => {
 
     await pool.execute(
 
