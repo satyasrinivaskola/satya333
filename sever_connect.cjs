@@ -14,6 +14,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+app.post("/saress", async (req, res) => {
+
+    await pool.execute(
+  "INSERT INTO images (title) VALUES (?)",
+            ["title"]
+
+    );
+
+    res.json("rows");
+
+});
 app.get("/saress", async (req, res) => {
 
     const [rows] = await pool.execute(
@@ -26,18 +38,6 @@ app.get("/saress", async (req, res) => {
     res.json(rows);
 
 });
-app.post("/saress", async (req, res) => {
-
-    await pool.execute(
-
-        "insert into images(title) values(?)",['nature']
-
-    );
-
-    res.json("rows");
-
-});
-
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
