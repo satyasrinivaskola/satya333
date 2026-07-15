@@ -25,7 +25,17 @@ app.get("/saress", async (req, res) => {
     res.json(rows);
 
 });
+app.post("/sss", async (req, res) => {
 
+    await pool.execute(
+
+        "insert into images(title) values(?)",['nature']
+
+    );
+
+    res.json("rows");
+
+});
 
 const PORT = process.env.PORT || 3000;
 
