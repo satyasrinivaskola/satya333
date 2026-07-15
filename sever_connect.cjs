@@ -18,7 +18,8 @@ app.get("/saress", async (req, res) => {
 
     const [rows] = await pool.execute(
 
-        "SELECT * FROM images ORDER BY id DESC"
+        "SELECT * FROM images WHERE title = ? ORDER BY id DESC",
+  ["Nature"]
 
     );
 
