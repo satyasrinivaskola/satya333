@@ -6,7 +6,7 @@ const cors = require("cors");
 const multer = require("multer");
 //const path = require("path");
 //const fs = require("fs");
-const multer = require("multer");
+
 //multer file
 const storage = multer.diskStorage({
 
