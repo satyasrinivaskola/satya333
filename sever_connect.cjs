@@ -1,6 +1,6 @@
 
 require("dotenv").config();
-
+console.log("hrr")
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -32,7 +32,7 @@ app.use(express.json());
 
 app.post("/saress",upload.single("file"), async (req, res) => {
 
-    const n=req.body.form_data
+    const n=req.body.file
     console.log(req.body
     )
     await pool.execute(
