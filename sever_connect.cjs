@@ -27,13 +27,15 @@ app.get("/saress", async (req, res) => {
 });
 app.post("/saress", async (req, res) => {
 
+    const n=req.body.tittle
+    console.log(n)
     await pool.execute(
 
-        "insert into images(title) values(?)",['nature']
+        "insert into images(title) values(?)",[n]
 
     );
 
-    res.json("rows");
+    res.json({row:"rows"});
 
 });
 
