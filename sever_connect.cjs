@@ -14,31 +14,32 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/saress", async (req, res) => {
 
-    const [rows] = await pool.execute(
-
-        "SELECT * FROM images ORDER BY id DESC"
-
-    );
-
-    res.json(rows);
-
-});
 app.post("/saress", async (req, res) => {
 
     const n=req.body.tittle
     console.log(n)
     await pool.execute(
-
-        "insert into images(title) values(?)",[n]
+  "INSERT INTO images (title) VALUES (?)",
+            [n]
 
     );
 
     res.json({row:"rows"});
 
 });
+app.get("/saress", async (req, res) => {
 
+    const [rows] = await pool.execute(
+
+        "SELECT * FROM images",
+ 
+
+    );
+
+    res.json(rows);
+
+});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
