@@ -32,8 +32,9 @@ app.use(express.json());
 
 app.post("/saress",upload.single("file"), async (req, res) => {
 
-    const n="all is well"
-    console.log(req.body)
+    const n=req.body.form_data
+    console.log(req.body
+    )
     await pool.execute(
   "INSERT INTO images (title) VALUES (?)",
             [n]
