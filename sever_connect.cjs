@@ -3,10 +3,28 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-//const multer = require("multer");
+const multer = require("multer");
 //const path = require("path");
 //const fs = require("fs");
+const multer = require("multer");
+//multer file
+const storage = multer.diskStorage({
 
+    destination:function(req,file,cb){
+
+        cb(null,"uploads");
+
+    },
+
+    filename:function(req,file,cb){
+
+        cb(null,file.originalname);
+
+    }
+
+});
+
+const upload = multer({storage});
 const pool = require("./pool");
 
 const app = express();
@@ -15,7 +33,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.post("/saress", async (req, res) => {
+app.post("/saress",upload.single("file"), async (req, res) => {
 
     const n=req.body.tittle
     console.log(n)
