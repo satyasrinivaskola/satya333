@@ -4,10 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
-//const path = require("path");
-//const fs = require("fs");
 
-//multer file
 const storage = multer.diskStorage({
 
     destination:function(req,file,cb){
@@ -35,8 +32,8 @@ app.use(express.json());
 
 app.post("/saress",upload.single("file"), async (req, res) => {
 
-    const n=req.body.tittle
-    console.log(n)
+    const n="all is well"
+    console.log(req.body)
     await pool.execute(
   "INSERT INTO images (title) VALUES (?)",
             [n]
